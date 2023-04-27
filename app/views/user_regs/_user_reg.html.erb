@@ -1,0 +1,19 @@
+<div id="<%= dom_id user_reg %>">
+  <p>
+    <strong>Name:</strong>
+    <%= user_reg.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= user_reg.email %>
+  </p>
+
+  <strong>Events</strong>
+    <% user_reg.articles.each do |article| %>
+        <%= link_to article, style: "text_decoration:none" do %>
+            <span class="btn btn-info"><%= article.title.capitalize %></span>
+        <% end %>
+    <% end %>
+
+</div>

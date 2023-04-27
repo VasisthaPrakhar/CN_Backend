@@ -1,0 +1,41 @@
+<div class="container">
+    <img src=<%= @article.img %> width="400" height="300" class="img-thumbnail">
+    <h1><%= @article.title %></h1>
+
+    <p><h4>Description:</h4> <%= @article.desc %></p>
+    <h2>Venue: <%= @article.venue %></h2>
+    <h2>Type: <%= @article.etype %></h2>
+    <P> Registration Begins:<%= @article.st_time %></p>
+    <P> Registration Ends:<%= @article.end_time %></p>
+    <h3>Basic Language: <%= @article.tag %></h3>
+    <h4>Fees: <%= @article.fee %></h4>
+    <strong>Tags</strong>
+    <% @article.tags.each do |tag| %>
+        <%= link_to tag, style: "text_decoration:none" do %>
+            <span class="btn btn-info"><%= tag.name.capitalize %></span>
+        <% end %>
+    <% end %>
+
+    <% @article.regables.each do |regable| %>
+    <h2>Users:</h2>
+    <%= render 'user_regs/user_reg',user_reg: regable.user_reg %>
+    <%= link_to "Read More" ,regable.user_reg %>
+    <hr/>
+  <% end %>
+    
+    <br/>
+    <br/>
+    <div>
+    <%= link_to "Back to events", root_path , class: "btn btn-dark"%>
+    <br/>
+    <br/>
+    </div>
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-secondary" %>
+    <br/>
+    <br/>
+    <%= link_to "Destroy", article_path(@article), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                    },class: "btn btn-danger" %>
+    
+</div>

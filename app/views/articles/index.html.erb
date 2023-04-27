@@ -1,0 +1,42 @@
+<% if user1_signed_in? %>
+    <% if current_user1.user_role.rtype == "Admin" %>
+      <h1>Events</h1>
+          <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Venue</th>
+            <th scope="col">Type</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+            <th scope="row"><%= article.id %></th>
+            <td><%= article.title %></td>
+            <td><%= article.desc %></td>
+            <td><%= article.st_time %></td>
+            <td><%= article.end_time %></td>
+            <td><%= article.venue %></td>
+            <td><%= article.etype %></td>
+            <td><%= link_to article.id, article %></td>
+          </tr>
+          <% end %>
+        
+        </tbody>
+      </table>
+    
+      <%= link_to "New Events", new_article_path %>
+  <% else %>
+    <h1>You does not have Required permission to Access Data !!!</h1>
+    <h2>Sincerely Advised to Login with Admin Credentials !!</h2>
+  <% end %>
+
+<% else %>
+    <h1>Welcome to Coding Ninjas!!!</h1>
+<% end %>

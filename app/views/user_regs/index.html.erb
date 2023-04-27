@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>User regs</h1>
+
+<div id="user_regs">
+  <% @user_regs.each do |user_reg| %>
+    <%= render user_reg %>
+    <p>
+      <%= link_to "Show this user reg", user_reg %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user reg", new_user_reg_path %>

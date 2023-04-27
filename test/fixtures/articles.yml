@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  desc: MyText
+  img: MyString
+  st_time: 2022-06-27 11:21:11
+  end_time: 2022-06-27 11:21:11
+  fee: 1
+  venue: MyString
+  etype: MyString
+  tag: MyString
+
+two:
+  title: MyString
+  desc: MyText
+  img: MyString
+  st_time: 2022-06-27 11:21:11
+  end_time: 2022-06-27 11:21:11
+  fee: 1
+  venue: MyString
+  etype: MyString
+  tag: MyString

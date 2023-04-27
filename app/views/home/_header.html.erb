@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to 'Admin',root_path, class:"navbar-brand"%>
+    <%# <a class="navbar-brand" href="#">Coding Ninja</a> %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+
+        <% if user1_signed_in? %>
+          <% if current_user1.user_role.rtype == "Admin" %>
+            <li class="nav-item">
+              <%= link_to 'Events',articles_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Add Events',new_article_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out',destroy_user1_session_path, data: {turbo_method: :delete}, class:"nav-link"%>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Edit Profile',edit_user1_registration_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Registered User',user_regs_path, class:"nav-link"%>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign Out',destroy_user1_session_path, data: {turbo_method: :delete}, class:"nav-link"%>
+            </li>
+          <% end %>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up',new_user1_registration_path,data: {turbo: false}, class:"nav-link"%>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Sign In',new_user1_session_path, class:"nav-link"%>
+          </li>
+        <% end %>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
